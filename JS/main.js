@@ -11,6 +11,8 @@ var indicator_length = page.length;
 var w = page[0].offsetWidth;
 var page_angle = 0;
 
+var hammer = new Hammer(wrapper); //터치 객체 생성
+
 /*================= 페이지 초기화 ==================== */
 
 function init_page() {
@@ -76,3 +78,28 @@ for (var i = 0; i < indicator_li.length; i++) {
 }
 
 /*================= 이벤트리스너 끝 ==================== */
+
+/*================= 터치 제스처 이벤트 ==================== */
+
+// 터치 swipe left
+hammer.on("swipeleft", function (e) {
+  //인디케이터(페이지) 이동 범위 내이면
+  if (indicator_num < indicator_length) {
+    page_vector = 1;
+  } else page_vector = 0;
+
+  indicator_num += page_vector;
+  change_page(indicator_num);
+});
+
+//터치 swipe right
+hammer.on("swiperight", function (e) {
+  if (indicator_num > 1) {
+    page_vector = -1;
+  } else page_vector = 0;
+
+  indicator_num += page_vector;
+  change_page(indicator_num);
+});
+
+/*================= 터치 제스처 이벤트 끝 ==================== */
