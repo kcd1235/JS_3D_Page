@@ -39,5 +39,20 @@ function init_indicator() {
 }
 //인디케이터 초기화 끝
 
+//페이지 전환
+function change_page(inum) {
+  indicator_li[inum - 1].setAttribute("class", "active");
+  yDeg = -90 * (inum - 1);
+  wrapper.style.transform =
+    "translateZ(" + -w / 2 + "px) rotateY(" + yDeg + "deg)";
+
+  //인디케이터 표시
+  for (var i = 0; i < indicator_li.length; i++) {
+    indicator_li[i].removeAttribute("class");
+  }
+
+  indicator_li[inum - 1].setAttribute("class", "active");
+}
+
 init_page();
 init_indicator();
