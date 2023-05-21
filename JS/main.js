@@ -25,5 +25,19 @@ function init_page() {
   wrapper.style.transform =
     "translateZ(" + -w / 2 + "px) rotateY(" + yDeg + "deg)";
 }
+//페이지 초기화 끝
+
+//인디케이터 초기화 함수
+function init_indicator() {
+  //인디케이터 표시
+  for (var i = 0; i < indicator_length; i++) {
+    indicator.innerHTML += "<li>" + (i + 1) + "</li>";
+  }
+
+  indicator_li = indicator.querySelectorAll("li");
+  change_page(indicator_num);
+}
+//인디케이터 초기화 끝
 
 init_page();
+init_indicator();
