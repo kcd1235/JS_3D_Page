@@ -102,4 +102,9 @@ hammer.on("swiperight", function (e) {
   change_page(indicator_num);
 });
 
+//창 크기 변경 시 페이지 초기화
+window.onresize = function () {
+  init_page();
+};
+
 /*================= 터치 제스처 이벤트 끝 ==================== */
